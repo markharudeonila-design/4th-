@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Babyyy ❤️</title>
+
+<style>
+
+/* ==============================
+   RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #ffd6e7, transparent 35%),
+        radial-gradient(circle at bottom right, #ffc1dc, transparent 35%),
+        linear-gradient(135deg, #fff0f6, #ffd8e8);
+
+    color: #542638;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+
+/* ==============================
+   FLOATING HEARTS
+============================== */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    opacity: 0.7;
+
+    animation:
+        floatUp linear forwards,
+        sway ease-in-out infinite;
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+@keyframes sway {
+
+    0%, 100% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: 30px;
+    }
+
+}
+
+
+/* ==============================
+   MAIN CONTAINER
+============================== */
+
+.container {
+
+    position: relative;
+    z-index: 2;
+
+    width: min(92%, 520px);
+
+    min-height: 650px;
+
+    padding: 35px 25px;
+
+    margin: 30px 0;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,0.78);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 25px 70px rgba(130, 45, 85, 0.20);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* ==============================
+   PAGES
+============================== */
+
+.page {
+    display: none;
+
+    animation: pageIn 0.7s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(45px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+}
+
+
+/* ==============================
+   TOP BADGE
+============================== */
+
+.badge {
+
+    display: inline-block;
+
+    padding: 9px 16px;
+
+    border-radius: 50px;
+
+    background: #ffe1ed;
+
+    color: #c44775;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 22px;
+}
+
+
+/* ==============================
+   TEXT
+============================== */
+
+h1 {
+
+    font-size: clamp(35px, 9vw, 55px);
+
+    color: #c43d72;
+
+    margin-bottom: 10px;
+}
+
+h2 {
+
+    font-size: clamp(25px, 6vw, 34px);
+
+    color: #b93668;
+
+    margin-bottom: 18px;
+}
+
+p {
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin: 13px 0;
+}
+
+strong,
+b {
+    color: #b83266;
+}
+
+
+/* ==============================
+   COVER HEART
+============================== */
+
+.main-heart {
+
+    font-size: 85px;
+
+    margin: 20px 0;
+
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.14);
+    }
+
+}
+
+
+/* ==============================
+   PHOTO
+============================== */
+
+.memory-photo {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    height: 430px;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin: 20px auto;
+
+    border-radius: 28px;
+
+    border: 6px solid white;
+
+    box-shadow:
+        0 15px 45px rgba(130, 45, 85, 0.22);
+
+    transition: transform 0.4s ease;
+}
+
+.memory-photo:hover {
+
+    transform: scale(1.02);
+}
+
+
+/* ==============================
+   PAGE NUMBER
+============================== */
+
+.page-number {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #bd6485;
+
+    margin-bottom: 18px;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
+button {
+
+    border: none;
+
+    padding: 14px 26px;
+
+    margin-top: 22px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #e85d91,
+        #c83e72
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(200, 62, 114, 0.28);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+button:hover {
+
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 15px 30px rgba(200, 62, 114, 0.35);
+}
+
+button:active {
+
+    transform: scale(0.96);
+}
+
+
+/* ==============================
+   MEMORY CAPTION
+============================== */
+
+.caption {
+
+    font-size: 18px;
+
+    color: #b83266;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+/* ==============================
+   FINAL PAGE
+============================== */
+
+.final-heart {
+
+    font-size: 90px;
+
+    margin: 15px 0;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+.final-message {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin-top: 20px;
+}
+
+.forever {
+
+    margin-top: 25px;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    color: #c2386c;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+/* ==============================
+   MUSIC NOTE
+============================== */
+
+.music-note {
+
+    font-size: 13px;
+
+    opacity: 0.65;
+
+    margin-top: 20px;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 500px) {
+
+    .container {
+
+        min-height: 600px;
+
+        padding: 30px 18px;
+
+        border-radius: 28px;
+    }
+
+    .memory-photo {
+
+        height: 380px;
+    }
+
+    p {
+
+        font-size: 15px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     FLOATING HEARTS
+============================== -->
+
+<div class="hearts" id="hearts"></div>
+
+
+<!-- ==============================
+     MAIN CONTAINER
+============================== -->
+
+<div class="container">
+
+
+    <!-- ==========================
+         COVER PAGE
+    =========================== -->
+
+    <div class="page active" id="cover">
+
+        <div class="badge">
+            SEPTEMBER 11 • OUR SPECIAL DAY ❤️
+        </div>
+
+        <div class="main-heart">
+            ❤️
+        </div>
+
+        <h1>
+            Happy 4th Monthsary!
+        </h1>
+
+        <h2>
+            For My Babyyy 🥺
+        </h2>
+
+        <p>
+            May something akong ginawa para sa'yo...
+        </p>
+
+        <p>
+            Hindi man ito bonggang regalo,
+            pero ginawa ko ito with all my heart. ❤️
+        </p>
+
+        <button onclick="showPage('message')">
+            Open My Message 💌
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================
+         MESSAGE PAGE
+    =========================== -->
+
+    <div class="page" id="message">
+
+        <div class="page-number">
+            💌 A LITTLE MESSAGE FOR YOU
+        </div>
+
+        <h2>
+            Babyyy... 🥺❤️
+        </h2>
+
+        <p>
+            Happy 4th Monthsary sa ating dalawa!
+            🥺❤️
+        </p>
+
+        <p>
+            Simula nung dumating ka sa buhay ko,
+            hindi ko akalain na magiging ganito
+            ka-special yung isang tao sa akin.
+        </p>
+
+        <p>
+            Thank you sa pag-intindi,
+            sa pakikinig, sa mga tawanan,
+            sa mga kwentuhan at sa lahat
+            ng moments natin.
+        </p>
+
+        <p>
+            Alam kong hindi naman perfect
+            ang lahat sa atin.
+            May mga araw na okay tayo,
+            may mga araw din na hindi.
+        </p>
+
+        <p>
+            Pero kahit ano pa man,
+            <b>I'm always thankful na nakilala kita.</b>
+            ❤️
+        </p>
+
+        <p>
+            At gusto kong ipakita sa'yo
+            yung ilan sa mga memories
+            na naging special para sa akin.
+        </p>
+
+        <button onclick="showPage('photo1')">
+            Another → 📸
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================
+         PHOTO PAGE 1
+    =========================== -->
+
+    <div class="page" id="photo1">
+
+        <div class="page-number">
+            MEMORY 01 / 05
+        </div>
+
+        <img
+            src="H.jpg"
+            class="memory-photo"
+            alt="Our Memory 1"
+        >
+
+        <div class="caption">
+            Simula nung nakilala kita noong 11 dito ko nakita face mo binigyan saken ni Nayie ❤️
+        </div>
+
+        <p>
+            Dito nagsimula yung story natin.
+            🥺
+        </p>
+
+        <button onclick="showPage('photo2')">
+            Another → ❤️
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================
+         PHOTO PAGE 2
+    =========================== -->
+
+    <div class="page" id="photo2">
+
+        <div class="page-number">
+            MEMORY 02 / 05
+        </div>
+
+        <img
+            src="B.jpg"
+            class="memory-photo"
+            alt="Our Memory 2"
+        >
+
+        <div class="caption">
+            Nagkakahiyaan pa tayo noon pero nag call na tayoo palagi ... 🙈
+        </div>
+
+        <p>
+            Naalala ko pa yung mga unang moments
+            natin unang araw nag call tayo na kinikilig ka sa iloveyouuuu ko HAHAHAHA ANG CUTEE😜🫢🥺❤️
+        </p>
+
+        <button onclick="showPage('photo3')">
+            Another → 💕
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================
+         PHOTO PAGE 3
+    =========================== -->
+
+    <div class="page" id="photo3">
+
+        <div class="page-number">
+            MEMORY 03 / 05
+        </div>
+
+        <img
+            src="C.jpg"
+            class="memory-photo"
+            alt="Our Memory 3"
+        >
+
+        <div class="caption">
+            Naglalaro tayo together affinity na agad us hehe🎮❤️
+        </div>
+
+        <p>
+            Yung mga laro natin,
+            kulitan, tawanan at simpleng
+            moments na sobrang saya.
+        </p>
+
+        <button onclick="showPage('photo4')">
+            Another → 🥺
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================
+         PHOTO PAGE 4
+    =========================== -->
+
+    <div class="page" id="photo4">
+
+        <div class="page-number">
+            MEMORY 04 / 05
+        </div>
+
+        <img
+            src="K.jpg"
+            class="memory-photo"
+            alt="Our Memory 4"
+        >
+
+        <div class="caption">
+            You made my life happier. ❤️
+        </div>
+
+        <p>
+            Sa lahat ng moments natin,
+            hindi ko makakalimutan kung paano
+            <b>napasaya mo sobra yung buhay ko.</b>
+            🥺❤️
+        </p>
+
+        <button onclick="showPage('photo5')">
+            Another → 💗
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================
+         PHOTO PAGE 5
+    =========================== -->
+
+    <div class="page" id="photo5">
+
+        <div class="page-number">
+            MEMORY 05 / 05
+        </div>
+
+        <img
+            src="R.jpg"
+            class="memory-photo"
+            alt="Our Memory 5"
+        >
+
+        <div class="caption">
+            More memories with you. 🫶🏻
+        </div>
+
+        <p>
+            At alam kong marami pa tayong
+            memories na gagawin together.
+            ❤️
+        </p>
+
+        <button onclick="showPage('final')">
+            One Last Page... 👀❤️
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================
+         FINAL PAGE
+    =========================== -->
+
+    <div class="page" id="final">
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+        <h2>
+            Happy 4th Monthsary, Babyyy! 🥺
+        </h2>
+
+        <p class="final-message">
+
+            Simula noong nakilala kita noong May 11,
+            hanggang sa araw na ito,
+            sobrang thankful ako na ikaw
+            yung naging parte ng buhay ko.
+            ❤️
+
+        </p>
+
+        <p class="final-message">
+
+            Thank you sa lahat ng memories,
+            sa tawanan, sa paglalaro,
+            sa mga simpleng moments,
+            at higit sa lahat,
+            sa pagmamahal mo sa akin.
+
+        </p>
+
+        <p class="final-message">
+
+            Sana marami pa tayong monthsary,
+            maraming taon,
+            maraming pictures,
+            maraming memories,
+            at maraming moments
+            na tayo pa rin. 🥺❤️
+
+        </p>
+
+        <p class="final-message">
+
+            <b>
+                Four months down,
+                and hopefully many, many more to go.
+            </b>
+
+        </p>
+
+        <div class="forever">
+            Always You. ❤️
+        </div>
+
+        <p>
+            Mahal na mahal kita, babyyy.
+            <br>
+            I love you so muchieee! 😗🫶🏻
+        </p>
+
+        <p class="music-note">
+            Made with love, just for you. ❤️
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+/* ==============================
+   PAGE SYSTEM
+============================== */
+
+function showPage(pageId) {
+
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    const selectedPage = document.getElementById(pageId);
+
+    if (selectedPage) {
+        selectedPage.classList.add("active");
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* ==============================
+   FLOATING HEART GENERATOR
+============================== */
+
+const heartsContainer =
+    document.getElementById("hearts");
+
+const heartSymbols = [
+    "❤️",
+    "💕",
+    "💗",
+    "💖",
+    "💘",
+    "💞",
+    "🥺"
+];
+
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML =
+        heartSymbols[
+            Math.floor(
+                Math.random() * heartSymbols.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 20) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+    heart.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(function() {
+
+        heart.remove();
+
+    }, 13000);
+}
+
+
+/* Create hearts continuously */
+
+setInterval(createHeart, 600);
+
+
+/* Initial hearts */
+
+for (let i = 0; i < 15; i++) {
+
+    setTimeout(
+        createHeart,
+        i * 250
+    );
+
+}
+
+</script>
+
+</body>
+</html>
