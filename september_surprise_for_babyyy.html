@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Babyyy ❤️</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#fff0f5,#ffe4ec,#fff8fb);
+    color:#5a2638;
+    overflow-x:hidden;
+  }
+  .hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .heart{
+    position:absolute;
+    bottom:-40px;
+    animation:float 7s linear infinite;
+    opacity:.7;
+    font-size:22px;
+  }
+  @keyframes float{
+    0%{transform:translateY(0) rotate(0);opacity:0}
+    15%{opacity:.8}
+    100%{transform:translateY(-110vh) rotate(25deg);opacity:0}
+  }
+  .wrap{
+    position:relative;z-index:1;
+    width:min(92%,760px);
+    margin:auto;
+    padding:55px 0 70px;
+  }
+  .card{
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:28px;
+    padding:38px 28px;
+    box-shadow:0 20px 60px rgba(128,47,78,.15);
+    text-align:center;
+  }
+  .mini{font-size:.9rem;letter-spacing:2px;text-transform:uppercase;color:#b55a7b}
+  h1{font-size:clamp(2.1rem,8vw,4.2rem);margin:10px 0;color:#9d315b}
+  .subtitle{font-size:1.05rem;line-height:1.7;margin-bottom:25px}
+  .btn{
+    border:0;border-radius:999px;padding:13px 22px;
+    background:#c94f78;color:white;font-size:1rem;font-weight:700;
+    cursor:pointer;box-shadow:0 8px 20px rgba(201,79,120,.25);
+    transition:.2s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .message{
+    display:none;text-align:left;margin-top:28px;
+    line-height:1.85;font-size:1rem;
+    animation:appear .8s ease;
+  }
+  .message.show{display:block}
+  @keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .message p{margin-bottom:17px}
+  .highlight{
+    margin:25px 0;padding:20px;border-radius:20px;
+    background:#fff0f5;text-align:center;font-weight:700;color:#9d315b;
+  }
+  .signature{text-align:center;font-size:1.15rem;margin-top:25px}
+  .secret{
+    margin-top:28px;padding-top:24px;border-top:1px dashed #e6a6bb;
+    text-align:center;
+  }
+  .secret-text{display:none;margin-top:15px;font-weight:600;line-height:1.7}
+  .secret-text.show{display:block;animation:appear .6s ease}
+  footer{text-align:center;margin-top:18px;color:#9b6678;font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+
+<main class="wrap">
+  <section class="card">
+    <div class="mini">September 1 • A little surprise for you</div>
+    <h1>Hi, babyyy ❤️</h1>
+    <p class="subtitle">
+      I made this little website just for you.<br>
+      Hindi man siya perfect, pero ginawa ko siya with love. 🥺
+    </p>
+
+    <button class="btn" id="openBtn">Open your surprise 💌</button>
+
+    <div class="message" id="message">
+      <p>
+        Happy first day of September, babyyy! 🥺❤️
+      </p>
+      <p>
+        Ingat ka palagi ha, lalo na kapag may gagawin ka. Please take care of yourself
+        and don't forget to rest kapag pagod ka na.
+      </p>
+      <p>
+        And please, huwag mong isipin nang sobra kung bakit nawala yung mood mo.
+        Lilipas din 'yan, okay? 🥺 Hindi mo kailangang pilitin ang sarili mong maging
+        okay agad. Take your time. Nandito lang ako para sa'yo kahit anong mood mo.
+      </p>
+      <p>
+        New month na naman, kaya sana maging mas gentle at masaya ang September mo.
+        Sana marami tayong magandang memories, kwentuhan, tawanan, at lambingan na
+        mabuo ngayong buwan. ❤️
+      </p>
+
+      <div class="highlight">
+        Kahit anong mood mo, kahit anong araw mo —<br>
+        nandito lang ako para sa'yo. ❤️
+      </div>
+
+      <p>
+        Thank you for staying with me, babyyy. Sana ikaw pa rin hanggang matapos
+        ang September, at sa mga susunod pang buwan. 🫶🏻
+      </p>
+
+      <div class="signature">
+        Mahal na mahal kita. ❤️<br>
+        <strong>I love you so muchieee! 😗🥺</strong>
+      </div>
+
+      <div class="secret">
+        <button class="btn" id="secretBtn">One more thing... 👀❤️</button>
+        <div class="secret-text" id="secret">
+          Hindi kailangan maging perfect ang bawat araw.<br>
+          Basta alam mong may isang taong pipiliing intindihin ka<br>
+          at manatili sa tabi mo. That's me. 🥺❤️
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with effort, love, and a little bit of pagka-miss sa'yo. ❤️</footer>
+</main>
+
+<script>
+  const hearts = document.getElementById("hearts");
+  const symbols = ["❤️","💗","💕","💖","🥺","🫶🏻"];
+
+  function createHeart(){
+    const h=document.createElement("span");
+    h.className="heart";
+    h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    h.style.left=Math.random()*100+"%";
+    h.style.fontSize=(15+Math.random()*18)+"px";
+    h.style.animationDuration=(5+Math.random()*5)+"s";
+    h.style.animationDelay=(Math.random()*2)+"s";
+    hearts.appendChild(h);
+    setTimeout(()=>h.remove(),11000);
+  }
+  setInterval(createHeart,650);
+
+  document.getElementById("openBtn").addEventListener("click",()=>{
+    document.getElementById("message").classList.add("show");
+    document.getElementById("openBtn").style.display="none";
+    window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+  });
+
+  document.getElementById("secretBtn").addEventListener("click",()=>{
+    const secret=document.getElementById("secret");
+    secret.classList.toggle("show");
+    document.getElementById("secretBtn").textContent =
+      secret.classList.contains("show") ? "I love you, babyyy ❤️" : "One more thing... 👀❤️";
+  });
+
+  for(let i=0;i<12;i++) setTimeout(createHeart,i*150);
+</script>
+</body>
+</html>
